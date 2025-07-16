@@ -85,6 +85,26 @@
         .copy-button:hover {
             background-color: #475569;
         }
+        /* Style for the new button */
+        .chatgpt-button {
+            display: block; /* Make it a block element to center with margin auto */
+            margin: 2rem auto; /* Center the button and add vertical spacing */
+            background-color: #60A5FA; /* Blue color for the button */
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none; /* Remove underline from link */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: fit-content; /* Adjust width to content */
+        }
+        .chatgpt-button:hover {
+            background-color: #3B82F6; /* Darker blue on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -97,6 +117,10 @@
         </header>
 
         <main id="main-content">
+            <!-- New button added here -->
+            <a href="https://data-espresso.com/%E0%B8%AA%E0%B8%A1%E0%B8%B1%E0%B8%84%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99-chatgpt/" target="_blank" class="chatgpt-button">
+                วิธีสมัคร ChatGPT
+            </a>
             
             <section id="personal-development" class="section-card">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">🚀 พัฒนาศักยภาพส่วนบุคคลด้วย AI</h2>
@@ -557,4 +581,3 @@
 
 </body>
 </html>
- 
