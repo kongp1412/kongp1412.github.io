@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Dictionary - พจนานุกรมคำสั่ง AI</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fffacd; /* Light yellow background (Lemon Chiffon) */
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .category-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .table-header {
+            background-color: #059669; /* Emerald 600 - Matches the image green */
+            color: white;
+        }
+        .table-row:nth-child(even) {
+            background-color: #ECFDF5; /* Emerald 50 - Very light green for even rows */
+        }
+        .table-row:nth-child(odd) {
+            background-color: #ffffff; /* White for odd rows */
+        }
+        /* No specific custom styles for back-button as Tailwind classes are used */
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+    <!-- ปุ่ม Back ซ้ายบน -->
+    <a href="index.html" class="fixed top-4 left-4 z-50 bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 py-2 rounded-lg shadow transition-colors duration-150 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+    </a>
+
+    <div class="container mx-auto bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-lg">
+
+        <!-- Header Section -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold text-black mb-2">🌽AI Prompt Dictionary🌽</h1>
+            <p class="text-xl text-gray-600">พจนานุกรมคำสั่ง AI ที่จะช่วยให้คุณใช้งาน AI ได้อย่างมีประสิทธิภาพ</p>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="content-area">
+            <!-- Categories will be loaded here by JavaScript -->
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>&copy; 2025 AI Prompt Dictionary. สงวนลิขสิทธิ์.</p>
+            <p>สร้างโดย เกมส์</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Define the prompt data
+        const promptData = [
+            {
+                category: "หมวด 1",
+                title: "คำสั่งพื้นฐาน (Basic Prompts)",
+                prompts: [
+                    { no: 1, term: "Explain", meaning: "อธิบาย" },
+                    { no: 2, term: "Summarize", meaning: "สรุป" },
+                    { no: 3, term: "Describe", meaning: "บรรยาย" },
+                    { no: 4, term: "List", meaning: "ลิสต์/ระบุรายการ" },
+                    { no: 5, term: "Suggest", meaning: "แนะนำ" },
+                    { no: 6, term: "Generate", meaning: "สร้าง (เนื้อหา, ภาพ, โค้ด ฯลฯ)" },
+                    { no: 7, term: "Analyze", meaning: "วิเคราะห์" },
+                    { no: 8, term: "Compare", meaning: "เปรียบเทียบ" },
+                    { no: 9, term: "Translate", meaning: "แปลภาษา" },
+                    { no: 10, term: "Write", meaning: "เขียน" },
+                    { no: 11, term: "Rewrite", meaning: "เขียนใหม่" },
+                    { no: 12, term: "Edit", meaning: "แก้ไข" },
+                    { no: 13, term: "Improve", meaning: "ปรับปรุง" },
+                    { no: 14, term: "Simplify", meaning: "ทำให้ง่ายขึ้น" },
+                    { no: 15, term: "Expand", meaning: "ขยายความ" }
+                ]
+            },
+            {
+                category: "หมวด 2",
+                title: "คำสั่งสร้างคอนเทนต์ (Content Creation)",
+                prompts: [
+                    { no: 16, term: "Create a blog post", meaning: "เขียนบทความ" },
+                    { no: 17, term: "Generate an ad copy", meaning: "สร้างข้อความโฆษณา" },
+                    { no: 18, term: "Write a product description", meaning: "เขียนคำอธิบายสินค้า" },
+                    { no: 19, term: "Generate a sales pitch", meaning: "สร้างคำพูดขายสินค้า" },
+                    { no: 20, term: "Write an engaging social media post", meaning: "สร้างโพสต์โซเชียลมีเดียที่น่าสนใจ" },
+                    { no: 21, term: "Create an email campaign", meaning: "สร้างแคมเปญอีเมล" },
+                    { no: 22, term: "Develop a brand story", meaning: "เขียนเรื่องราวแบรนด์" },
+                    { no: 23, term: "Generate hashtags for marketing", meaning: "สร้างแฮชแท็กสำหรับการตลาด" },
+                    { no: 24, term: "Write a script for a YouTube video", meaning: "เขียนสคริปต์วิดีโอ YouTube" },
+                    { no: 25, term: "Generate SEO-friendly content", meaning: "สร้างเนื้อหาที่เหมาะกับ SEO" }
+                ]
+            },
+            {
+                category: "หมวด 3",
+                title: "คำสั่งที่ใช้กับ AI สร้างภาพ (AI Image Generation)",
+                prompts: [
+                    { no: 26, term: "Generate an illustration of...", meaning: "สร้างภาพประกอบของ..." },
+                    { no: 27, term: "Create a photorealistic image of...", meaning: "สร้างภาพสมจริงของ..." },
+                    { no: 28, term: "Design a futuristic cityscape", meaning: "ออกแบบภาพเมืองอนาคต" },
+                    { no: 29, term: "Create a fantasy landscape", meaning: "สร้างภาพทิวทัศน์แฟนตาซี" },
+                    { no: 30, term: "Generate a portrait in cyberpunk style", meaning: "สร้างภาพบุคคลในสไตล์ไซเบอร์พังก์" },
+                    { no: 31, term: "Create a product mockup", meaning: "สร้างตัวอย่างผลิตภัณฑ์เสมือนจริง" },
+                    { no: 32, term: "Generate a character design", meaning: "ออกแบบตัวละคร" },
+                    { no: 33, term: "Illustrate a concept for a book cover", meaning: "วาดแนวคิดสำหรับปกหนังสือ" },
+                    { no: 34, term: "Create a vintage poster", meaning: "สร้างโปสเตอร์สไตล์วินเทจ" },
+                    { no: 35, term: "Generate an AI-generated painting", meaning: "สร้างภาพวาดที่สร้างโดย AI" }
+                ]
+            },
+            {
+                category: "หมวด 4",
+                title: "คำสั่งที่ใช้กับ AI สร้างเสียง (AI Voice & Speech Generation)",
+                prompts: [
+                    { no: 36, term: "Generate a voice-over script", meaning: "สร้างสคริปต์เสียงพากย์" },
+                    { no: 37, term: "Convert this text to speech", meaning: "แปลงข้อความนี้เป็นเสียงพูด" },
+                    { no: 38, term: "Generate an AI-powered audiobook", meaning: "สร้างหนังสือเสียงที่ใช้ AI" },
+                    { no: 39, term: "Create a podcast introduction", meaning: "สร้างบทนำสำหรับพอดแคสต์" },
+                    { no: 40, term: "Generate a robotic voice narration", meaning: "สร้างเสียงบรรยายแบบหุ่นยนต์" }
+                ]
+            },
+            {
+                category: "หมวด 5",
+                title: "คำสั่งที่ใช้กับ AI สร้างโค้ดและโปรแกรมมิ่ง (AI Coding & Development)",
+                prompts: [
+                    { no: 41, term: "Generate a Python script for...", meaning: "สร้างสคริปต์ Python สำหรับ..." },
+                    { no: 42, term: "Write a JavaScript function that...", meaning: "เขียนฟังก์ชัน JavaScript ที่..." },
+                    { no: 43, term: "Debug this code", meaning: "แก้ไขข้อผิดพลาดของโค้ดนี้" },
+                    { no: 44, term: "Explain this algorithm", meaning: "อธิบายอัลกอริทึมนี้" },
+                    { no: 45, term: "Optimize this SQL query", meaning: "ปรับปรุงคำสั่ง SQL ให้มีประสิทธิภาพขึ้น" },
+                    { no: 46, term: "Convert this Java code to Python", meaning: "แปลงโค้ด Java เป็น Python" },
+                    { no: 47, term: "Generate an HTML template", meaning: "สร้างเทมเพลต HTML" },
+                    { no: 48, term: "Suggest best practices for API development", meaning: "แนะนำแนวปฏิบัติที่ดีที่สุดสำหรับการพัฒนา API" },
+                    { no: 49, term: "Create a machine learning model in Python", meaning: "สร้างโมเดล Machine Learning ใน Python" },
+                    { no: 50, term: "Generate a chatbot script", meaning: "สร้างสคริปต์สำหรับแชทบอท" }
+                ]
+            },
+            {
+                category: "หมวด 6",
+                title: "คำสั่งที่ใช้วิเคราะห์ข้อมูลและ AI ทำนายผล (AI Data Analysis & Prediction)",
+                prompts: [
+                    { no: 51, term: "Analyze customer data trends", meaning: "วิเคราะห์แนวโน้มข้อมูลลูกค้า" },
+                    { no: 52, term: "Predict future sales based on past data", meaning: "ทำนายยอดขายอนาคตจากข้อมูลที่ผ่านมา" },
+                    { no: 53, term: "Generate a financial forecast", meaning: "สร้างการพยากรณ์ทางการเงิน" },
+                    { no: 54, term: "Identify key insights from this dataset", meaning: "ค้นหาข้อมูลสำคัญจากชุดข้อมูลนี้" },
+                    { no: 55, term: "Generate a market research report", meaning: "สร้างรายงานการวิจัยตลาด" },
+                    { no: 56, term: "Perform sentiment analysis on customer reviews", meaning: "วิเคราะห์อารมณ์จากรีวิวลูกค้า" },
+                    { no: 57, term: "Optimize digital marketing campaign based on data", meaning: "ปรับปรุงแคมเปญการตลาดดิจิทัลโดยใช้ข้อมูล" },
+                    { no: 58, term: "Cluster customer segments using AI", meaning: "จัดกลุ่มลูกค้าด้วย AI" },
+                    { no: 59, term: "Generate a heatmap analysis for user behavior", meaning: "สร้างการวิเคราะห์ Heatmap สำหรับพฤติกรรมผู้ใช้" },
+                    { no: 60, term: "Develop a predictive model for customer churn", meaning: "สร้างโมเดลทำนายการเลิกใช้บริการของลูกค้า" }
+                ]
+            }
+        ];
+
+        const contentArea = document.getElementById('content-area');
+
+        // Function to display categories
+        function displayCategories() {
+            contentArea.innerHTML = `
+                <h2 class="text-3xl sm:text-4xl font-semibold text-center text-black mb-8">หมวดหมู่คำสั่ง</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    ${promptData.map((cat, index) => `
+                        <div class="category-card bg-gradient-to-br from-emerald-500 to-emerald-700 text-white p-6 rounded-lg shadow-md cursor-pointer flex flex-col justify-between items-center text-center transform hover:scale-105"
+                             onclick="displayCategoryDetails(${index})">
+                            <h3 class="text-2xl font-bold mb-2">${cat.category}</h3>
+                            <p class="text-lg">${cat.title}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Function to display details of a specific category
+        function displayCategoryDetails(index) {
+            const category = promptData[index];
+            contentArea.innerHTML = `
+                <button class="bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-lg mb-6 flex items-center shadow-md hover:shadow-lg"
+                        onclick="displayCategories()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    กลับสู่หมวดหมู่
+                </button>
+                <h2 class="text-3xl sm:text-4xl font-semibold text-emerald-700 mb-6 text-center">${category.title}</h2>
+                <div class="overflow-x-auto rounded-lg shadow-md">
+                    <table class="min-w-full bg-white border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 text-left border-b-2 border-emerald-200 table-header rounded-tl-lg">No.</th>
+                                <th class="py-3 px-4 text-left border-b-2 border-emerald-200 table-header">คำศัพท์ (Prompt)</th>
+                                <th class="py-3 px-4 text-left border-b-2 border-emerald-200 table-header rounded-tr-lg">ความหมาย (ไทย)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${category.prompts.map(p => `
+                                <tr class="table-row">
+                                    <td class="py-3 px-4 border-b border-emerald-100">${p.no}</td>
+                                    <td class="py-3 px-4 border-b border-emerald-100">${p.term}</td>
+                                    <td class="py-3 px-4 border-b border-emerald-100">${p.meaning}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Initial load: display categories
+        document.addEventListener('DOMContentLoaded', displayCategories);
+    </script>
+</body>
+</html>
