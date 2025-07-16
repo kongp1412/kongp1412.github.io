@@ -6,54 +6,108 @@
     <title>AI Prompt Dictionary - พจนานุกรมคำสั่ง AI</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for Inter font */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fffacd; /* Light yellow background (Lemon Chiffon) */
-            color: #333;
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background: linear-gradient(to bottom right, #FFFDEB, #FFF9C4); /* สีเหลืองจางแบบ index.html */
+            color: #4A4A4A;
+            min-height: 100vh;
         }
         .container {
             max-width: 1200px;
         }
         .category-card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.25s cubic-bezier(.4,0,.2,1);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+        }
+        .category-card.category-0 {
+            background: #059669; /* เขียว emerald */
+        }
+        .category-card.category-1 {
+            background: #2563eb; /* น้ำเงิน */
+        }
+        .category-card.category-2 {
+            background: linear-gradient(90deg, #a78bfa 0%, #f472b6 100%);
+        }
+        .category-card.category-3 {
+            background: #f59e42; /* ส้มอ่อน */
+        }
+        .category-card.category-4 {
+            background: #f43f5e; /* แดงอมชมพู */
+        }
+        .category-card.category-5 {
+            background: #10b981; /* เขียวอ่อน */
         }
         .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            filter: brightness(0.95) saturate(1.1);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 16px 0 rgba(0,0,0,0.15);
         }
         .table-header {
-            background-color: #059669; /* Emerald 600 - Matches the image green */
+            background-color: #E3A008; /* สีเหลืองเข้มแบบ index.html */
             color: white;
         }
         .table-row:nth-child(even) {
-            background-color: #ECFDF5; /* Emerald 50 - Very light green for even rows */
+            background-color: #F1F5F9;
         }
         .table-row:nth-child(odd) {
-            background-color: #ffffff; /* White for odd rows */
+            background-color: #FFFFFF;
         }
-        /* No specific custom styles for back-button as Tailwind classes are used */
+        .rounded-xl, .rounded-lg {
+            border-radius: 1.5rem !important;
+        }
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+        }
+        .back-button {
+            background: linear-gradient(90deg, #a78bfa 0%, #f472b6 100%);
+            border: none;
+            color: #fff;
+        }
+        /* ปุ่ม emerald */
+        .emerald-btn {
+            background-color: #059669;
+            color: #fff;
+            border-radius: 0.75rem;
+            transition: background 0.2s;
+        }
+        .emerald-btn:hover {
+            background-color: #047857;
+        }
+        /* ตาราง */
+        table {
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
     </style>
 </head>
-<body class="p-4 sm:p-6 md:p-8">
-
+<body class="antialiased">
     <!-- ปุ่ม Back ซ้ายบน -->
-    <a href="index.html" class="fixed top-4 left-4 z-50 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-lg shadow transition-colors duration-150 flex items-center gap-2">
+    <a href="index.html" class="fixed top-4 left-4 z-50 emerald-btn font-semibold px-4 py-2 shadow flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
         Back
     </a>
 
-    <div class="container mx-auto bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-lg">
+    <div class="container mx-auto bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg">
 
         <!-- Header Section -->
         <header class="text-center mb-8">
-            <h1 class="text-4xl sm:text-5xl font-bold text-black mb-2">🌽AI Prompt Dictionary🌽</h1>
-            <p class="text-xl text-gray-600">พจนานุกรมคำสั่ง AI ที่จะช่วยให้คุณใช้งาน AI ได้อย่างมีประสิทธิภาพ</p>
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-2">🌽AI Prompt Dictionary🌽</h1>
+            <p class="text-xl text-gray-600 mb-2">พจนานุกรมคำสั่ง AI ที่จะช่วยให้คุณใช้งาน AI ได้อย่างมีประสิทธิภาพ</p>
         </header>
+
+        <!-- Section Title (หมวดหมู่คำสั่ง) -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl sm:text-4xl font-semibold text-gray-800">หมวดหมู่คำสั่ง</h2>
+        </div>
 
         <!-- Main Content Area -->
         <main id="content-area">
@@ -174,12 +228,11 @@
         // Function to display categories
         function displayCategories() {
             contentArea.innerHTML = `
-                <h2 class="text-3xl sm:text-4xl font-semibold text-center text-black mb-8">หมวดหมู่คำสั่ง</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     ${promptData.map((cat, index) => `
-                        <div class="category-card bg-gradient-to-br from-emerald-500 to-emerald-700 text-white p-6 rounded-lg shadow-md cursor-pointer flex flex-col justify-between items-center text-center transform hover:scale-105"
+                        <div class="category-card category-${index} cursor-pointer flex flex-col justify-between items-center text-center p-6"
                              onclick="displayCategoryDetails(${index})">
-                            <h3 class="text-2xl font-bold mb-2">${cat.category}</h3>
+                            <h3 class="text-2xl font-bold mb-2 drop-shadow">${cat.category}</h3>
                             <p class="text-lg">${cat.title}</p>
                         </div>
                     `).join('')}
@@ -191,29 +244,29 @@
         function displayCategoryDetails(index) {
             const category = promptData[index];
             contentArea.innerHTML = `
-                <button class="bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-lg mb-6 flex items-center shadow-md hover:shadow-lg"
+                <button class="emerald-btn py-2 px-4 mb-6 flex items-center shadow-md hover:shadow-lg"
                         onclick="displayCategories()">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                     </svg>
                     กลับสู่หมวดหมู่
                 </button>
-                <h2 class="text-3xl sm:text-4xl font-semibold text-emerald-700 mb-6 text-center">${category.title}</h2>
-                <div class="overflow-x-auto rounded-lg shadow-md">
+                <h2 class="text-3xl sm:text-4xl font-semibold text-amber-700 mb-6 text-center">${category.title}</h2>
+                <div class="overflow-x-auto rounded-2xl shadow-lg">
                     <table class="min-w-full bg-white border-collapse">
                         <thead>
                             <tr>
-                                <th class="py-3 px-4 text-left border-b-2 border-emerald-200 table-header rounded-tl-lg">No.</th>
-                                <th class="py-3 px-4 text-left border-b-2 border-emerald-200 table-header">คำศัพท์ (Prompt)</th>
-                                <th class="py-3 px-4 text-left border-b-2 border-emerald-200 table-header rounded-tr-lg">ความหมาย (ไทย)</th>
+                                <th class="py-3 px-4 text-left border-b-2 border-amber-200 table-header rounded-tl-2xl">No.</th>
+                                <th class="py-3 px-4 text-left border-b-2 border-amber-200 table-header">คำศัพท์ (Prompt)</th>
+                                <th class="py-3 px-4 text-left border-b-2 border-amber-200 table-header rounded-tr-2xl">ความหมาย (ไทย)</th>
                             </tr>
                         </thead>
                         <tbody>
                             ${category.prompts.map(p => `
                                 <tr class="table-row">
-                                    <td class="py-3 px-4 border-b border-emerald-100">${p.no}</td>
-                                    <td class="py-3 px-4 border-b border-emerald-100">${p.term}</td>
-                                    <td class="py-3 px-4 border-b border-emerald-100">${p.meaning}</td>
+                                    <td class="py-3 px-4 border-b border-gray-100">${p.no}</td>
+                                    <td class="py-3 px-4 border-b border-gray-100">${p.term}</td>
+                                    <td class="py-3 px-4 border-b border-gray-100">${p.meaning}</td>
                                 </tr>
                             `).join('')}
                         </tbody>
