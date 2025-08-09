@@ -83,8 +83,16 @@
         .prompt-card:hover .copy-button {
             opacity: 1;
         }
+        .prompt-card:focus-within .copy-button {
+            opacity: 1;
+        }
         .copy-button:hover {
             background-color: #475569;
+        }
+        @media (hover: none) {
+            .copy-button {
+                opacity: 1;
+            }
         }
     </style>
 </head>
